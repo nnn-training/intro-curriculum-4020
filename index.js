@@ -19,4 +19,12 @@ function getC() {
 }
 
 // TODO ここに getA, getB, getC で得られる結果をかけあわせた結果 2431 を標準出力するコードを記述する
+const promise = [getA(), getB(), getC()];
+
+Promise.all(promise).then(values => {
+  const result = values.reduce((previousValue, currentValue) => {
+    return previousValue * currentValue;
+  });
+  console.log(result);
+});
 // ただし Promise チェイン(then関数の結果に対するthen関数の呼び出し)を一度は用いて実装をすること
