@@ -1,5 +1,8 @@
 'use strict';
 
+Promise.all([getA(), getB(), getC()]).then(answer => {console.log(answer.reduce(function(ans, element){return ans * element;}, 1))});
+
+
 function getA() {
   return new Promise((resolve) => {
     setTimeout(() => { resolve(11); }, 1000);
