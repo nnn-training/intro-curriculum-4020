@@ -40,3 +40,8 @@ getA()
   .then(a => getB().then(b => a * b))
   .then(ab => getC().then(c => ab * c))
   .then(abc => console.log(`教材のヒントに基づく解答: ${abc}`));
+
+// 教材の正答の Promise.all の例
+Promise
+  .all([getA(), getB(), getC()])
+  .then(results => console.log(`教材の正答の Promise.all の例: ${results.reduce((v1, v2) => v1 * v2)}`));
